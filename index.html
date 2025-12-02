@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Do List Application</h1>
+
+      <!-- Add New Task -->
+      <form id="todo-form">
+        <h2>Add New Task</h2>
+
+        <label>Title</label>
+        <input type="text" id="title" placeholder="Task title" required />
+
+        <label>Description (Optional)</label>
+        <textarea id="description" placeholder="Task details..."></textarea>
+
+        <label>Due Date & Time</label>
+        <input type="datetime-local" id="dueDate" required />
+
+        <button type="submit" id="addBtn">Add Task</button>
+      </form>
+
+      <hr />
+
+      <!-- Task List -->
+      <h2>Your Tasks</h2>
+      <div id="todo-list" class="todo-list">
+        <!-- Tasks will appear here dynamically -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
