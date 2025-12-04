@@ -215,6 +215,14 @@ async function createTodo(e) {
     return;
   }
 
+  const todoData = {
+    title: title,
+    description: description,
+    dueDate: dueDate,
+    priority: priority,
+    tags: tagsArray,
+  };
+
   try {
     addBtn.disabled = true;
     addBtn.classList.add("loading");
