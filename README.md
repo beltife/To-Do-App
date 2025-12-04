@@ -1,11 +1,15 @@
-# TO-DO app
+- # To-Do List Application
 
-Simple to-do app with HTML/CSS/JS.
+A simple to-do list web app built with HTML, CSS, and JavaScript and connected to a MockAPI backend.
 
-How to run
+## Features
 
-- Open `index.html` in a browser.
+- Add tasks
+- Edit tasks
+- Delete tasks
+- Mark complete/incomplete
+- Shows overdue tasks
 
-Notes
+## How to Run
 
-- Add more instructions here if you add build steps or dependencies.
+Just open `index.html` in your browser.

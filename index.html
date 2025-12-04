@@ -2,39 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
     <title>To-Do List App</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
   <body>
     <div class="container">
-      <h1>To-Do List Application</h1>
+      <header class="app-header">
+        <div class="brand">
+          <h1>Beltife Apparel Tasks</h1>
+          <p class="tagline">Craft · Sketch · Sew</p>
+        </div>
+        <div class="controls">
+          <input id="search" class="search" type="search" placeholder="Search tasks, tags, descriptions..." aria-label="Search tasks">
+          <select id="filterPriority" class="filter">
+            <option value="all">All priorities</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+      </header>
 
-      <!-- Add New Task -->
-      <form id="todo-form">
-        <h2>Add New Task</h2>
+      <main class="main-grid">
+        <!-- Add New Task -->
+        <aside class="form-panel">
+          <form id="todo-form">
+            <h2>Add New Task</h2>
 
-        <label>Title</label>
-        <input type="text" id="title" placeholder="Task title" required />
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Task title" required />
 
-        <label>Description (Optional)</label>
-        <textarea id="description" placeholder="Task details..."></textarea>
+            <label for="description">Description (Optional)</label>
+            <textarea id="description" placeholder="Task details..."></textarea>
 
-        <label>Due Date & Time</label>
-        <input type="datetime-local" id="dueDate" required />
+            <label for="dueDate">Due Date & Time</label>
+            <input type="datetime-local" id="dueDate" required />
 
-        <button type="submit" id="addBtn">Add Task</button>
-      </form>
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Low">Low</option>
+            </select>
 
-      <hr />
+            <label for="tag">Tags (e.g., fittings, samples, urgent)</label>
+            <div class="tag-input-wrapper">
+              <input type="text" id="tag" placeholder="Type tags separated by commas..." />
+              <div id="tagSuggestions" class="tag-suggestions"></div>
+            </div>
 
-      <!-- Task List -->
-      <h2>Your Tasks</h2>
-      <div id="todo-list" class="todo-list">
-        <!-- Tasks will appear here dynamically -->
+            <button type="submit" id="addBtn">Add Task</button>
+          </form>
+
+          <!-- status messages -->
+          <div id="status" class="status" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+        </aside>
+
+        <!-- task list -->
+        <section class="list-panel">
+          <h2>Your Tasks</h2>
+          <div id="todo-list" class="todo-list">
+            <!-- tasks rendered here -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- delete modal -->
+    <div id="deleteModal" class="modal" hidden role="alertdialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+      <div class="modal-content">
+        <h3 id="deleteModalTitle">Delete Task</h3>
+        <p id="deleteModalMessage">Are you sure you want to delete this task?</p>
+        <div class="modal-actions">
+          <button id="deleteConfirmBtn" class="btn-confirm">Delete</button>
+          <button id="deleteCancelBtn" class="btn-cancel">Cancel</button>
+        </div>
       </div>
     </div>
 
+    <!-- script -->
     <script src="script.js"></script>
   </body>
 </html>
